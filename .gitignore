@@ -1,3 +1,10 @@
+# Build results
 bin/
 obj/
+
+# Published output
+Published/
+
+# User specific files
+*.user
 .vs/
