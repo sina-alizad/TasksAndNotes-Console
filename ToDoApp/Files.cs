@@ -10,11 +10,7 @@ namespace ToDoApp
 
         public static void Initialize()
         {
-            string path = Directory.GetCurrentDirectory();
-            for (int i = 0; i < 3; i++)
-            {
-                path = Directory.GetParent(path).ToString();
-            }
+            string path = AppContext.BaseDirectory;
             filePath = Path.Combine(path, "File.txt");
         }
         public static List<string> Load()
