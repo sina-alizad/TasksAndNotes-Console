@@ -8,3 +8,6 @@ Published/
 # User specific files
 *.user
 .vs/
+
+# Notes data file
+File.txt
