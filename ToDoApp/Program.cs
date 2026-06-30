@@ -7,12 +7,13 @@ namespace ToDo
     {
         static void Main(string[] args)
         {
-            List<string> list = new List<string>();
-
-            Methods.Header();
-
+            Files.Initialize();
+            List<string> list = Files.Load();
+            
             while (true)
             {
+                Console.Clear();
+                Methods.Header();
                 try
                 {
 

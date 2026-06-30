@@ -35,7 +35,7 @@ namespace ToDoApp
         public static void Menu()
         {
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("\nEnter:\nA for Adding\nE for Editting\nD for Deleting\n");
+            Console.WriteLine("\nEnter:\nA for Adding\nE for Editing\nD for Deleting\n");
             Console.ResetColor();
         }
 
@@ -45,6 +45,7 @@ namespace ToDoApp
             Console.WriteLine("\nAdd your task...\n");
             list.Add(Console.ReadLine());
             Console.ResetColor();
+            Files.Save(list);
         }
 
         public static void Edit(List<string> list)
@@ -65,18 +66,21 @@ namespace ToDoApp
                 list[i - 1] = Console.ReadLine();
 
                 Console.ResetColor();
+                Files.Save(list);
             }
             catch (ArgumentOutOfRangeException)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"\nERROR: Input out of range!\n");
                 Console.ResetColor();
+                Console.ReadKey();
             }
             catch (OverflowException)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"\nERROR: Overflow!\n");
                 Console.ResetColor();
+                Console.ReadKey();
             }
         }
 
@@ -84,24 +88,35 @@ namespace ToDoApp
         {
             try
             {
+                if (list.Count == 0)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"\nERROR: There's nothing to delete!\n");
+                    Console.ResetColor();
+                    Console.ReadKey();
+                    return;
+                }
                 Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine("\nChoose task to delete:\n");
                 Tasks(list);
                 int i = Convert.ToInt32(Console.ReadLine());
                 list.RemoveAt(i - 1);
                 Console.ResetColor();
+                Files.Save(list);
             }
             catch (ArgumentOutOfRangeException)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"\nERROR: Input out of range!\n");
                 Console.ResetColor();
+                Console.ReadKey();
             }
             catch (OverflowException)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"\nERROR: Overflow!\n");
                 Console.ResetColor();
+                Console.ReadKey();
             }
         }
         public static void WrongInput()
@@ -109,6 +124,7 @@ namespace ToDoApp
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\nERROR: Enter A, E or D!\n");
             Console.ResetColor();
+            Console.ReadKey();
         }
 
         public static void FormatException()
@@ -116,18 +132,21 @@ namespace ToDoApp
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\nERROR: Wrong Format!\n");
             Console.ResetColor();
+            Console.ReadKey();
         }
         public static void OutOfRange()
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\nERROR: Input out of range!\n");
             Console.ResetColor();
+            Console.ReadKey();
         }
         public static void UnknownError()
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\nERROR: Unknown Error!\n");
             Console.ResetColor();
+            Console.ReadKey();
         }
     }
 }
