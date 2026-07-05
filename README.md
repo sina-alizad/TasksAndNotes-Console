@@ -2,15 +2,23 @@
 
 Simple C# console to-do list project.
 
-## Current features
-- Add tasks
-- Edit tasks
-- Delete tasks
-- Save tasks to a local file
-- Load tasks on startup
+## Features
+- Add, edit, delete tasks
+- Mark tasks as complete/incomplete
+- Tasks save to a local file automatically
+- Handles invalid input
 
 ## Run
-Open the project in Visual Studio and run it, or download the latest release `.exe`.
+Open the project in Visual Studio and run it, or download the latest release `ToDoApp.exe`.
+
+## Controls
+| Key | Action |
+|-----|--------|
+| A | Add task |
+| E | Edit task |
+| D | Delete task |
+| T | Toggle complete |
+| X | Exit |
 
 ## Roadmap
 - <spoiler>

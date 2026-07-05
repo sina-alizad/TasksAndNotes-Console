@@ -8,11 +8,11 @@ namespace ToDo
         static void Main(string[] args)
         {
             Files.Initialize();
-            List<string> list = Files.Load();
-            
+            List<TaskItem> list = Files.Load();
+
             while (true)
             {
-                Console.Clear();
+                Methods.ClearAll();
                 Methods.Header();
                 try
                 {
@@ -23,9 +23,10 @@ namespace ToDo
                         Methods.Tasks(list);
 
                     Methods.Menu();
-                    string input = Console.ReadLine().ToLower();
+                    Methods.ExitMenu();
+                    string option = Console.ReadLine().ToLower();
 
-                    switch (input)
+                    switch (option)
                     {
                         case "a":
                             Methods.Add(list);
@@ -39,15 +40,20 @@ namespace ToDo
                             Methods.Delete(list);
                             break;
 
+                        case "t":
+                            Methods.Toggle(list);
+                            break;
+
+                        case "x":
+                            return;
+
                         default:
                             Methods.WrongInput();
                             break;
                     }
                 }
                 catch (FormatException)
-                {
-                    Methods.FormatException();
-                }
+                { Methods.FormatException(); }
             }
         }
     }
