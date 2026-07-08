@@ -31,7 +31,7 @@ namespace ToDoApp
             }
 
             Console.ResetColor();
-        }  // syntax of boolean notepad
+        }
         public static void Menu()
         {
             Console.ForegroundColor = ConsoleColor.White;
@@ -59,7 +59,7 @@ namespace ToDoApp
             list.Add(task);
             Console.ResetColor();
             Files.Save(list);
-        } // syntax notes
+        }
         public static void Edit(List<TaskItem> list)
         {
             try
@@ -85,7 +85,7 @@ namespace ToDoApp
             { OutOfRange(); }
             catch (OverflowException)
             { Overflow(); }
-        } // why instance every time
+        }
         public static void Delete(List<TaskItem> list)
         {
             try
@@ -114,7 +114,7 @@ namespace ToDoApp
             { OutOfRange(); }
             catch (OverflowException)
             { Overflow(); }
-        } // working
+        }
         public static void Toggle(List<TaskItem> list)
         {
             try
@@ -135,9 +135,9 @@ namespace ToDoApp
             { OutOfRange(); }
             catch (OverflowException)
             { Overflow(); }
-        } // add notes to notepad invertion
+        }
 
-        public static string TaskInput(string prompt) // no need for bool
+        public static string TaskInput(string prompt)
         {
             Console.WriteLine(prompt);
             string taskInput = Console.ReadLine().Trim();
@@ -156,7 +156,7 @@ namespace ToDoApp
         public static void WrongInput()
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("\nERROR: Enter A, E or D!\n");
+            Console.WriteLine("\nERROR: Enter A, E, D or T!\n");
             Console.ResetColor();
             ExitMenu();
             Console.ReadKey();

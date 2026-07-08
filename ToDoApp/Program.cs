@@ -24,8 +24,14 @@ namespace ToDo
 
                     Methods.Menu();
                     Methods.ExitMenu();
-                    string option = Console.ReadLine().ToLower();
+                    string option = Console.ReadLine();
+                    if (option == null)
+                    {
+                        Methods.WrongInput();
+                        continue;
+                    }
 
+                    option = option.ToLower();
                     switch (option)
                     {
                         case "a":
